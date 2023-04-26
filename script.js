@@ -58,14 +58,14 @@ function playRound(computerChoice, playerChoice) {
 
 function game() {
     // Play 5 rounds of the game
-    // keep score and return winner
+    // keep score and display winner in the console
     let computerChoice;
     let playerChoice;
     let result;
 
     let playerScore = 0;
     let computerScore = 0;
-    
+
     for (let i = 0; i < 5; i++) {
         computerChoice = getComputerChoice();
         playerChoice = getPlayerChoice();
