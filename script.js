@@ -9,3 +9,12 @@ function getComputerChoice() {
 
     return choices[index];
 }
+
+function getPlayerChoice() {
+    // Function prompts user for choice
+    // returns player choice
+
+    let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
+
+    return playerChoice;
+}
