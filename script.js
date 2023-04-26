@@ -16,11 +16,13 @@ function getPlayerChoice() {
 
     let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
 
+    while (choices.includes(playerChoice) == false) {
+        playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
+    }
+
     return playerChoice;
 }
 
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
 
 function playRound(computerChoice, playerChoice) {
     switch (computerChoice) {
@@ -54,4 +56,37 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-playRound(computerChoice, playerChoice);
+function game() {
+    // Play 5 rounds of the game
+    // keep score and return winner
+    let computerChoice;
+    let playerChoice;
+    let result;
+
+    let playerScore = 0;
+    let computerScore = 0;
+    
+    for (let i = 0; i < 5; i++) {
+        computerChoice = getComputerChoice();
+        playerChoice = getPlayerChoice();
+        result = playRound(computerChoice, playerChoice);
+        console.log(result);
+
+        if (result.includes('Win')) {
+            playerScore++;
+        } else if (result.includes('Lose')) {
+            computerScore++;
+        }
+    }
+
+    if (playerScore > computerScore) {
+        console.log('Player wins the game!');
+        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+    } else if (computerScore > playerScore) {
+        console.log('Computer wins the game!');
+        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+    } else {
+        console.log('Game ends in a tie!');
+        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+    }
+}
