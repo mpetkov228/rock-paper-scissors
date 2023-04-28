@@ -19,20 +19,6 @@ function getComputerChoice() {
     return choices[index];
 }
 
-function getPlayerChoice() {
-    // Function prompts user for choice
-    // returns player choice
-
-    let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
-
-    while (choices.includes(playerChoice) == false) {
-        playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
-    }
-
-    return playerChoice;
-}
-
-
 function playRound(computerChoice, playerChoice) {
     switch (computerChoice) {
         case 'rock':
