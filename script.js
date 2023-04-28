@@ -1,12 +1,13 @@
 const choices = ['rock', 'paper', 'scissors'];
 const buttons = document.querySelectorAll('button');
+const resultDiv = document.querySelector('.result');
 
 buttons.forEach(button => button.addEventListener('click', onClick));
 
 function onClick(e) {
     let playerChoice = e.target.id;
     let computerChoice = getComputerChoice();
-    console.log(playRound(computerChoice, playerChoice));
+    resultDiv.textContent = playRound(computerChoice, playerChoice);
 }
 
 function getComputerChoice() {
