@@ -1,4 +1,13 @@
 const choices = ['rock', 'paper', 'scissors'];
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => button.addEventListener('click', onClick));
+
+function onClick(e) {
+    let playerChoice = e.target.id;
+    let computerChoice = getComputerChoice();
+    console.log(playRound(computerChoice, playerChoice));
+}
 
 function getComputerChoice() {
     // Function generates a random number between 0 and 2 
@@ -56,37 +65,37 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-function game() {
-    // Play 5 rounds of the game
-    // keep score and display winner in the console
-    let computerChoice;
-    let playerChoice;
-    let result;
+// function game() {
+//     // Play 5 rounds of the game
+//     // keep score and display winner in the console
+//     let computerChoice;
+//     let playerChoice;
+//     let result;
 
-    let playerScore = 0;
-    let computerScore = 0;
+//     let playerScore = 0;
+//     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        computerChoice = getComputerChoice();
-        playerChoice = getPlayerChoice();
-        result = playRound(computerChoice, playerChoice);
-        console.log(result);
+//     for (let i = 0; i < 5; i++) {
+//         computerChoice = getComputerChoice();
+//         playerChoice = getPlayerChoice();
+//         result = playRound(computerChoice, playerChoice);
+//         console.log(result);
 
-        if (result.includes('Win')) {
-            playerScore++;
-        } else if (result.includes('Lose')) {
-            computerScore++;
-        }
-    }
+//         if (result.includes('Win')) {
+//             playerScore++;
+//         } else if (result.includes('Lose')) {
+//             computerScore++;
+//         }
+//     }
 
-    if (playerScore > computerScore) {
-        console.log('Player wins the game!');
-        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
-    } else if (computerScore > playerScore) {
-        console.log('Computer wins the game!');
-        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
-    } else {
-        console.log('Game ends in a tie!');
-        console.log(`Player: ${playerScore} Computer: ${computerScore}`);
-    }
-}
+//     if (playerScore > computerScore) {
+//         console.log('Player wins the game!');
+//         console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+//     } else if (computerScore > playerScore) {
+//         console.log('Computer wins the game!');
+//         console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+//     } else {
+//         console.log('Game ends in a tie!');
+//         console.log(`Player: ${playerScore} Computer: ${computerScore}`);
+//     }
+// }
