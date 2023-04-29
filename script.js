@@ -10,6 +10,8 @@ let computerScore = 0;
 buttons.forEach(button => button.addEventListener('click', onClick));
 
 function onClick(e) {
+    if (playerScore == 5 || computerScore == 5) return;
+
     let playerChoice = e.target.id;
     let computerChoice = getComputerChoice();
     let result = playRound(computerChoice, playerChoice);
@@ -18,6 +20,8 @@ function onClick(e) {
 
     playerSpan.textContent = playerScore;
     computerSpan.textContent = computerScore;
+
+    determineWinner();
 }
 
 function getComputerChoice() {
@@ -67,6 +71,14 @@ function addToScore(roundResult) {
         playerScore++;
     } else if (roundResult.includes('Lose')) {
         computerScore++;
+    }
+}
+
+function determineWinner() {
+    if (playerScore == 5) {
+        resultDiv.textContent = 'Player Wins!';
+    } else if (computerScore == 5) {
+        resultDiv.textContent = 'Computer Wins!';
     }
 }
 
