@@ -1,13 +1,23 @@
 const choices = ['rock', 'paper', 'scissors'];
 const buttons = document.querySelectorAll('button');
 const resultDiv = document.querySelector('.result');
+const playerSpan = document.querySelector('.player');
+const computerSpan = document.querySelector('.computer');
+
+let playerScore = 0;
+let computerScore = 0;
 
 buttons.forEach(button => button.addEventListener('click', onClick));
 
 function onClick(e) {
     let playerChoice = e.target.id;
     let computerChoice = getComputerChoice();
-    resultDiv.textContent = playRound(computerChoice, playerChoice);
+    let result = playRound(computerChoice, playerChoice);
+    addToScore(result);
+    resultDiv.textContent = result;
+
+    playerSpan.textContent = playerScore;
+    computerSpan.textContent = computerScore;
 }
 
 function getComputerChoice() {
@@ -49,6 +59,14 @@ function playRound(computerChoice, playerChoice) {
                 return 'It\'s a tie!';
             }
         break;
+    }
+}
+
+function addToScore(roundResult) {
+    if (roundResult.includes('Win')) {
+        playerScore++;
+    } else if (roundResult.includes('Lose')) {
+        computerScore++;
     }
 }
 
